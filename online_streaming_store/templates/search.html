@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
+
+{% block body %}
+	<form action="{{'/{}'.format(table)}}">
+		<h1>Procure por {{table.replace('_', ' ')}}</h1>
+		<h3>Todos os campos são opcionais</h3>
+		{% for field in fields %}
+			<div class="form-field">
+				<label for="{{field}}">{{snake_case_to_capital(field)}}</label>
+				<input id="{{field}}" class="form-input" type="text" name="{{field}}">
+			</div>
+		{% endfor %}
+		<button type="submit">Submit</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+	<ul>
+		{% for table in tables %}
+			<li>
+				<strong>
+					{{snake_case_to_capital(table)}}
+				</strong>
+				<a href="{{'/{}'.format(table)}}">Ver todos</a>
+				<a href="{{'/{}/search'.format(table)}}">Pesquisar</a>
+				<a href="{{'/{}/create'.format(table)}}">Criar</a>
+			</li>
+
+		{% endfor %}
+	</ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}
+	<form action="{{'/{}/create'.format(table)}}" method="post">
+		<h1>Crie um {{snake_case_to_lower(table)}}</h1>
+		{% for field in fields %}
+			<div class="form-field">
+				<label for="{{field}}">{{snake_case_to_capital(field)}}</label>
+				<input id="{{field}}" class="form-input" type="text" name="{{field}}">
+			</div>
+		{% endfor %}
+		<button type="submit">Submit</button>
+	</form>
+{% endblock %}
